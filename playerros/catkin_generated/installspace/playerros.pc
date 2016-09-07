@@ -1,0 +1,8 @@
+prefix=/home/benaissa/catkin_ws/install
+
+Name: playerros
+Description: Description of playerros
+Version: 0.0.0
+Cflags: -I/usr/include
+Libs: -L/home/benaissa/catkin_ws/install/lib 
+Requires: roscpp tf

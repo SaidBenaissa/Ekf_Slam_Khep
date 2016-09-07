@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+	<systemCovariance>
+ 		<param name="sigmaX" value="0.005" unit="m"/>
+		<param name="sigmaY" value="0.005" unit="m"/>
+		<param name="sigmaTheta" value="0.352" unit="deg"/>
+	</systemCovariance>
+	<inputCovariance>
+		<param name="sigmaDecoder" value=""/>
+	</inputCovariance>
+	<measureCovariance>
+		<param name="sigmaX" value="0.01" unit="m"/>
+		<param name="sigmaY" value="0.01" unit="m"/> 
+	</measureCovariance>
+	<MahalanobisDistance value="4.62"/>
+</config>

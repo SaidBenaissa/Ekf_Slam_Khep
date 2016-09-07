@@ -1,0 +1,8 @@
+prefix=/home/towardthesea/catkin_ws/src/kh3ROS/playerros_teleop/devel
+
+Name: playerros_teleop
+Description: Description of playerros_teleop
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/towardthesea/catkin_ws/src/kh3ROS/playerros_teleop/devel/lib 
+Requires: 

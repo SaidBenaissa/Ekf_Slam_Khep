@@ -1,0 +1,8 @@
+prefix=/home/benaissa/catkin_ws/src/kh3ROS/line_extract/devel
+
+Name: line_extract
+Description: Description of line_extract
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/benaissa/catkin_ws/src/kh3ROS/line_extract/devel/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/towardthesea/catkin_ws/src/kh3ROS/randomwalk/devel
+
+Name: randomwalk
+Description: Description of randomwalk
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/towardthesea/catkin_ws/src/kh3ROS/randomwalk/devel/lib 
+Requires: 

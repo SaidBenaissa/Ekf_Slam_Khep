@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "playerros")
+set(playerros_MAINTAINER "benaissa <ph17dn@gmail.com>")
+set(playerros_DEPRECATED "")
+set(playerros_VERSION "0.0.0")
+set(playerros_BUILD_DEPENDS "sensor_msgs" "geometry_msgs" "nav_msgs" "roscpp" "tf")
+set(playerros_RUN_DEPENDS "sensor_msgs" "geometry_msgs" "nav_msgs" "roscpp" "tf")
+set(playerros_BUILDTOOL_DEPENDS "catkin")

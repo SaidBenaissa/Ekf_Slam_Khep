@@ -1,0 +1,59 @@
+<launch>
+
+  <param name="use_sim_time" value="true"/>
+
+  <node 
+	pkg="tf" 
+	type="static_transform_publisher" 
+	name="WORLD" 
+	args="1.1 0.5 0 0 0 0 world odom 100">
+  </node>
+
+<!--
+  <node
+    pkg="gmapping"
+    type="slam_gmapping"   
+    name="Draw_Map"
+	output="log">
+	<param name="xmin" value="0"/>
+	<param name="ymin" value="0"/>
+	<param name="xmax" value="10"/>
+	<param name="ymax" value="10"/>
+	<param name="delta" value="0.05"/>
+	<remap from="/scan" to="/base_scan"/>
+  </node>
+-->
+  <node
+  	pkg="rviz"
+	type="rviz"
+	name="RVIZ"
+	respawn="true">
+  </node>   
+
+  <node
+    pkg="ekf_localize"
+    type="ekf_localize_node"
+    name="FILTER"
+    args="-f $(find ekf_localize)/config1.xml -m $(find ekf_localize)/map.xml"
+	output="log">
+  </node>
+<!--
+  <node
+    pkg="kalman_localize"
+    type="kalman_localize_node"
+    name="FILTER"
+    args="-f $(find kalman_localize)/config1.xml -m $(find kalman_localize)/map1.xml"
+	output="log">
+  </node> 
+-->
+
+  <node
+    pkg="rosbag"
+    type="play"
+    name="PLAYBACK"
+	args="--clock /home/towardthesea/catkin_ws/src/bag/test_06-18.bag"
+	output="screen">
+  </node>
+  
+
+</launch>

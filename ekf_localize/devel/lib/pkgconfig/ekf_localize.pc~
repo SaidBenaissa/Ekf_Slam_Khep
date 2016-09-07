@@ -1,0 +1,8 @@
+prefix=/home/towardthesea/catkin_ws/src/kh3ROS/ekf_localize/devel
+
+Name: ekf_localize
+Description: Description of ekf_localize
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/towardthesea/catkin_ws/src/kh3ROS/ekf_localize/devel/lib 
+Requires: 

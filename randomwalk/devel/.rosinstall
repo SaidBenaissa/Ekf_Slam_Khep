@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/towardthesea/catkin_ws/src/kh3ROS/randomwalk/devel/setup.sh

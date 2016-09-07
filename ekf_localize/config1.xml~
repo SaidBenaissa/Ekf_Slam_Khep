@@ -1,0 +1,15 @@
+<?xml version="1.0"?> <!--linear unit: m, angular unit: degree-->
+<config>
+	<DistanceWheel value="0.13"/>
+	<Period value="0.4"/>
+	<!--<systemCovariance sigmaX="0.005" sigmaY="0.005" sigmaTheta="0.352"/>-->
+	<systemCovariance sigmaX="0.0" sigmaY="0.0" sigmaTheta="0.0"/>-->
+	<!--<systemCovariance sigmaX="0.001" sigmaY="0.001" sigmaTheta="1.0"/>-->
+	<inputCovariance sigmaDecoder="0.0000001"/>
+	<measureCovariance sigmaDist="0.03" sigmaAngle="0.5"/> 
+	<MahalanobisDistance threshold="4.62"/>
+	<InitP PoX="0.01" PoY="0.01" PoTheta="0.5"/>
+<!--	<InitPosition X0="1.10" Y0="0.50" Theta0="0.5"/>-->
+<!--	<InitPosition X0="0.10" Y0="0.40" Theta0="-90.0"/>-->
+	<InitPosition X0="0.48" Y0="0.205" Theta0="0.0"/>
+</config>

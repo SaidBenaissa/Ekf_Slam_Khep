@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "line_extract")
+set(line_extract_MAINTAINER "benaissa <ph17dn@gmail.com>")
+set(line_extract_DEPRECATED "")
+set(line_extract_VERSION "0.0.0")
+set(line_extract_BUILD_DEPENDS "roscpp" "geometry_msgs" "sensor_msgs")
+set(line_extract_RUN_DEPENDS "roscpp" "geometry_msgs" "sensor_msgs")
+set(line_extract_BUILDTOOL_DEPENDS "catkin")

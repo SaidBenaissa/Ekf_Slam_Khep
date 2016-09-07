@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<map>
+<!-- Corners coordinate in world frame-->
+	<corner name="Corner0" valueX="0.0" valueY="0.0"/>
+	<corner name="Corner1" valueX="1.4" valueY="0.0"/>
+	<corner name="Corner2" valueX="1.4" valueY="1.0"/>
+	<corner name="Corner3" valueX="0.0" valueY="1.0"/>
+	
+<!-- Corners coordinate in odom frame-->
+<!--	<corner name="Corner0" valueX="-0.1" valueY="-0.4"/>
+	<corner name="Corner1" valueX="1.3" valueY="-0.4"/>
+	<corner name="Corner2" valueX="1.3" valueY="0.6"/>
+	<corner name="Corner3" valueX="-0.1" valueY="0.6"/>-->
+</map>

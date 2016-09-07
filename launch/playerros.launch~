@@ -1,0 +1,51 @@
+<launch>
+  <node
+    pkg="playerros_teleop"
+    type="playerros_teleop_node"
+    name="Keyboard">
+  </node>
+
+  <node 
+    pkg="playerros"
+    type="playerros_node"
+    name="Player_ROS"
+	args="-h 192.168.1.2">
+  </node> 
+
+  <node
+    pkg="gmapping"
+    type="slam_gmapping"   
+    name="Draw_Map">
+	<param name="xmin" value="0"/>
+	<param name="ymin" value="0"/>
+	<param name="xmax" value="10"/>
+	<param name="ymax" value="10"/>
+	<param name="delta" value="0.05"/>
+    <remap from="/scan" to="/base_scan"/>
+  </node>
+
+  <node
+  	pkg="rviz"
+	type="rviz"
+	name="RVIZ">
+  </node>   
+
+  <node
+    pkg="randomwalk"
+    type="randomwalk_node"
+    name="Walk">
+  </node>
+
+  <node
+    pkg="line_extract"
+    type="line_extract_node"
+    name="LRF">
+  </node>
+
+  <node
+    pkg="kalman_localize"
+    type="kalman_localize_node"
+    name="FILTER">
+  </node>
+
+</launch>

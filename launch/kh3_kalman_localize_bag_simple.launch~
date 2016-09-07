@@ -1,0 +1,52 @@
+<launch>
+
+  <param name="use_sim_time" value="true"/>
+
+  <node 
+	pkg="tf" 
+	type="static_transform_publisher" 
+	name="WORLD" 
+	args="0 0 0 0 0 0 world map 1">
+  </node>
+
+
+  <node
+    pkg="gmapping"
+    type="slam_gmapping"   
+    name="Draw_Map"
+	output="log">
+	<param name="xmin" value="0"/>
+	<param name="ymin" value="0"/>
+	<param name="xmax" value="10"/>
+	<param name="ymax" value="10"/>
+	<param name="delta" value="0.05"/>
+	<remap from="/scan" to="/base_scan"/>
+  </node>
+
+  <node
+  	pkg="rviz"
+	type="rviz"
+	name="RVIZ"
+	respawn="true">
+  </node>   
+
+
+  <node
+    pkg="kalman_localize"
+    type="kalman_localize_node"
+    name="FILTER"
+    args="-f $(find kalman_localize)/config1.xml -m $(find kalman_localize)/map1.xml"
+	output="log">
+  </node> 
+
+
+  <node
+    pkg="rosbag"
+    type="play"
+    name="PLAYBACK"
+	args="--clock /home/towardthesea/catkin_ws/src/bag/test_06-22_simple.bag"
+	output="screen">
+  </node>
+  
+
+</launch>

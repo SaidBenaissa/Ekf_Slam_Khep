@@ -1,0 +1,140 @@
+For building Player-3.0.2, please follow some of guides as following:
+
+http://sourceforge.net/p/playerstage/mailman/message/32992365/
+=========================================================================
+On Fri, Oct 31, 2014 at 6:11 PM, Kefei Zeng <kefei.zeng@...>
+wrote:
+
+>  Hi everyone,
+>
+>
+>  I've only started to try to use Player today. I'm currently stuck in the
+> "make" step. It always goes up to 16% before giving the following error:
+>
+> In file included from
+> /home/charles/player-3.0.2/client_libs/libplayerc++/playerclient.h:66:0,
+>                  from
+> /home/charles/player-3.0.2/client_libs/libplayerc++/playerc++.h:61,
+>                  from
+> /home/charles/player-3.0.2/client_libs/libplayerc++/playerclient.cc:54:
+> /usr/include/boost/signal.hpp:17:4: warning: #warning "Boost.Signals is no
+> longer being maintained and is now deprecated. Please switch to
+> Boost.Signals2. To disable this warning message, define
+> BOOST_SIGNALS_NO_DEPRECATION_WARNING." [-Wcpp]
+>  #  warning                  "Boost.Signals is no longer being maintained
+> and is now deprecated. Please switch to Boost.Signals2. To disable this
+> warning message, define BOOST_SIGNALS_NO_DEPRECATION_WARNING."
+>     ^
+> In file included from /usr/include/pthread.h:24:0,
+>                  from
+> /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h:35,
+>                  from
+> /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h:148,
+>                  from /usr/include/c++/4.8/ext/atomicity.h:35,
+>                  from /usr/include/c++/4.8/bits/ios_base.h:39,
+>                  from /usr/include/c++/4.8/ios:42,
+>                  from /usr/include/c++/4.8/ostream:38,
+>                  from /usr/include/c++/4.8/iostream:39,
+>                  from
+> /home/charles/player-3.0.2/client_libs/libplayerc++/playerclient.cc:48:
+> /home/charles/player-3.0.2/client_libs/libplayerc++/playerclient.cc: In
+> member function ‘void PlayerCc::PlayerClient::RunThread()’:
+> /home/charles/player-3.0.2/client_libs/libplayerc++/playerclient.cc:171:34:
+> error: expected unqualified-id before numeric constant
+>      boost::xtime_get(&xt, boost::TIME_UTC);
+>
+>
+>  Is this problem caused by missing dependencies, or do I have a major
+> problem with Boost.Signals? So far, I haven't been able to find much useful
+> information on Boost.Signals2 and player. Any help would be greatly
+> appreciated.
+>
+>  Hi,
+
+The problem is that boost changed the name of the TIME_UTC constant in
+version 1.50.  This issue was fixed in svn commit 9111, you can view the
+changes with the sourceforge commit browser[1].
+
+To work around this problem until the next Player release comes out, you
+can just substitute "boost::TIME_UTC_" for "boost::TIME_UTC" in
+client_libs/libplayerc++/playerclient.cc
+
+Rich
+
+[1] http://sourceforge.net/p/playerstage/svn/commit_browser
+=========================================================================
+
+http://sourceforge.net/p/playerstage/mailman/playerstage-developers/thread/From_noreply@sourceforge.net_Sat_Jul_07_17:37:11_2012/
+=========================================================================
+Bugs item #3541173, was opened at 2012-07-07 10:37
+Message generated for change (Tracker Item Submitted) made by jpgr87
+You can respond by visiting: 
+https://sourceforge.net/tracker/?func=detail&atid=433164&aid=3541173&group_id=42445
+
+Please note that this message will contain a full copy of the comment thread,
+including the initial issue submission, for this request,
+not just the latest update.
+Category: player
+Group: trunk
+Status: Open
+Resolution: None
+Priority: 5
+Private: No
+Submitted By: Rich Mattes (jpgr87)
+Assigned to: Rich Mattes (jpgr87)
+Summary: Readlog incompatible with zlib 1.2.6
+
+Initial Comment:
+
+/home/stefano/builds/player/src/player-3.0.2/server/drivers/shell/readlog.cc:
+In member function ‘virtual void ReadLog::Main()’:
+/home/stefano/builds/player/src/player-3.0.2/server/drivers/shell/readlog.cc:668:43:
+error: cannot convert ‘FILE* {aka _IO_FILE*}’ to ‘gzFile’ for argument
+‘1’ to ‘off_t gzseek(gzFile, off_t, int)’
+/home/stefano/builds/player/src/player-3.0.2/server/drivers/shell/readlog.cc:714:62:
+error: cannot convert ‘FILE* {aka _IO_FILE*}’ to ‘gzFile’ for argument
+‘1’ to ‘char* gzgets(gzFile, char*, int)’
+make[2]: *** [server/libplayerdrivers/CMakeFiles/playerdrivers.dir/__/drivers/shell/readlog.o]
+Error 1
+make[1]: *** [server/libplayerdrivers/CMakeFiles/playerdrivers.dir/all] Error 2
+make: *** [all] Error 2
+
+This may be related to the API change in zlib from 1.2.5 to 1.2.6,
+which is now installed on my system. According to another archlinux
+user, there has been a change in zlib.h in 1.2.6:
+
+-   typedef voidp gzFile;       /* opaque gzip file descriptor */
++ typedef struct gzFile_s *gzFile;    /* semi-opaque gzip file descriptor */ 
+
+
+Fix:
+668c668
+<         ret = gzseek(this->file,0,SEEK_SET);
+---
+>         ret = gzseek((gzFile)this->file,0,SEEK_SET);
+714c714
+<         ret = (gzgets(this->file, this->line, this->line_size) == NULL);
+---
+>         ret = (gzgets((gzFile)this->file, this->line, this->line_size) == NULL);
+=========================================================================
+
+=========================================================================
+For each error : undefined reference to symbol
+'_ZN5boost6system15system_categoryEv' 
+add the flag "-lboost_system" after "-lboost_signals" in the file
+player-3.0.2/build/examples/libplayerc++/Makefile/*.dir/link.txt
+For example :
+player-3.0.2/build/examples/libplayerc++/Makefile/camera.dir/link.txt will
+be : 
+/usr/bin/c++    -Wall    CMakeFiles/camera.dir/camera.o  -o camera -rdynamic
+-L/usr/local/lib ../../client_libs/libplayerc++/libplayerc++.so.3.0.2
+../../client_libs/libplayerc/libplayerc.so.3.0.2
+../../libplayerinterface/libplayerinterface.so.3.0.2
+../../libplayercommon/libplayercommon.so.3.0.2 -lm -lz -lgeos -lgeos_c
+*-lboost_thread -lboost_signals -lboost_system* -lm
+../../libplayerjpeg/libplayerjpeg.so.3.0.2 -ljpeg
+../../libplayerwkb/libplayerwkb.so.3.0.2
+../../libplayercommon/libplayercommon.so.3.0.2 -lgeos
+-lgeos_c
+=========================================================================
+

@@ -1,0 +1,8 @@
+prefix=/home/towardthesea/catkin_ws/install
+
+Name: playerros_teleop
+Description: Description of playerros_teleop
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/towardthesea/catkin_ws/install/lib 
+Requires: 

@@ -1,0 +1,41 @@
+<launch>
+  <node
+    pkg="playerros_teleop"
+    type="playerros_teleop_node"
+    name="Keyboard">
+  </node>
+
+  <node 
+    pkg="playerros"
+    type="playerros_node"
+    name="Player_ROS"
+	args="-h 192.168.1.150">
+  </node> 
+
+  <node
+    pkg="amcl"
+    type="amcl"   
+    name="Localization">
+    <remap from="/scan" to="/base_scan"/>
+  </node>
+
+  <node
+  	pkg="rviz"
+	type="rviz"
+	name="RVIZ">
+  </node>   
+
+  <node
+    pkg="randomwalk"
+    type="randomwalk_node"
+    name="Walk">
+  </node>
+
+  <node
+    pkg="map_server"
+    type="map_server"
+    name="Map"
+	args="/home/benaissa/catkin_ws/room.yaml">
+
+  </node>
+</launch>

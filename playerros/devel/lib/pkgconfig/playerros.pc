@@ -1,0 +1,8 @@
+prefix=/home/towardthesea/catkin_ws/src/playerros/devel
+
+Name: playerros
+Description: Description of playerros
+Version: 0.0.0
+Cflags: -I/home/towardthesea/catkin_ws/src/playerros/include -I/usr/include
+Libs: -L/home/towardthesea/catkin_ws/src/playerros/devel/lib 
+Requires: roscpp tf

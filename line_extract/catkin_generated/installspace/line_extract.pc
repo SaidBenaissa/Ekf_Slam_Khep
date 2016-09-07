@@ -1,0 +1,8 @@
+prefix=/home/benaissa/catkin_ws/install
+
+Name: line_extract
+Description: Description of line_extract
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/benaissa/catkin_ws/install/lib 
+Requires: 

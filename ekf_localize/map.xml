@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<map>
+	<!--<corner name="Corner0" valueX="0.0" valueY="0.0"/>
+	<corner name="Corner1" valueX="2.0" valueY="0.0"/>
+	<corner name="Corner2" valueX="2.0" valueY="2.0"/>
+	<corner name="Corner3" valueX="0.0" valueY="2.0"/>-->
+	<corner name="Corner0" valueX="1.40" valueY="0.0"/>
+	<corner name="Corner1" valueX="1.40" valueY="0.2"/>
+	<corner name="Corner2" valueX="2.80" valueY="0.0"/>
+	<corner name="Corner3" valueX="3.60" valueY="0.1"/>
+	<corner name="Corner4" valueX="2.80" valueY="1.1"/>
+	<corner name="Corner5" valueX="1.40" valueY="1.05"/>
+	<corner name="Corner6" valueX="1.55" valueY="1.05"/>
+	<corner name="Corner7" valueX="2.00" valueY="1.05"/>
+	<corner name="Corner8" valueX="2.20" valueY="1.05"/>
+	<corner name="Corner9" valueX="0.05" valueY="1.25"/>	
+	<corner name="Corner10" valueX="5.00" valueY="0.0"/>
+	<corner name="Corner11" valueX="5.00" valueY="-5.6"/>	
+	<corner name="Corner12" valueX="3.70" valueY="-5.6"/>
+	<corner name="Corner10" valueX="3.60" valueY="0.10"/>		
+</map>

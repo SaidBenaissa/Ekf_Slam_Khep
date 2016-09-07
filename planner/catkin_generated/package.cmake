@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "planner")
+set(planner_MAINTAINER "pavan <pavan@todo.todo>")
+set(planner_DEPRECATED "")
+set(planner_VERSION "0.0.0")
+set(planner_BUILD_DEPENDS "roscpp" "std_msgs" "nav_msgs")
+set(planner_RUN_DEPENDS "roscpp" "std_msgs" "nav_msgs")
+set(planner_BUILDTOOL_DEPENDS "catkin")

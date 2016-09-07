@@ -1,0 +1,8 @@
+prefix=/home/benaissa/catkin_ws/install
+
+Name: ekf_localize
+Description: Description of ekf_localize
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/benaissa/catkin_ws/install/lib 
+Requires: 

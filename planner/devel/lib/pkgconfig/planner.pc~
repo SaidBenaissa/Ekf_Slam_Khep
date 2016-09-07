@@ -1,0 +1,8 @@
+prefix=/home/towardthesea/catkin_ws/src/kh3ROS/planner/devel
+
+Name: planner
+Description: Description of planner
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/towardthesea/catkin_ws/src/kh3ROS/planner/devel/lib 
+Requires: 

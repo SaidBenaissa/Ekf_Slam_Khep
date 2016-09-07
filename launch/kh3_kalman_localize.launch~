@@ -1,0 +1,94 @@
+<launch>
+  <param name="use_sim_time" value="false"/>
+
+  <!-- Generate a fixed frame world at (0.0,0.0,0.0) and odom frame is translated (0.1,0.4,0.0) and rotated -90degree around z axis-->
+  <node 
+	pkg="tf" 
+	type="static_transform_publisher" 
+	name="WORLD" 
+	args="0.48 0.805 0 0 0 -3.14 world odom 100">
+  </node>
+
+  <node
+    pkg="rosbag"
+    type="record"
+    name="RECORD"
+	args="-a -o /home/benaissa/catkin_ws/src/bag/test">
+  </node>
+
+  <node
+    pkg="playerros_teleop"
+    type="playerros_teleop_node"
+    name="Keyboard"
+	output="screen">
+  </node>
+
+  <node 
+    pkg="playerros"
+    type="playerros_node"
+    name="Player_ROS"
+	args="-h 192.168.1.150">
+  </node> 
+<!--
+  <node
+    pkg="gmapping"
+    type="slam_gmapping"   
+    name="Draw_Map"
+	respawn="true">
+	<param name="xmin" value="0"/>
+	<param name="ymin" value="0"/>
+	<param name="xmax" value="10"/>
+	<param name="ymax" value="10"/>
+	<param name="delta" value="0.05"/>
+    <remap from="/scan" to="/base_scan"/>
+  </node>
+-->
+  <node
+  	pkg="rviz"
+	type="rviz"
+	name="RVIZ"
+	respawn="true">
+  </node>   
+
+  <node
+    pkg="line_extract"
+    type="line_extract_node"
+    name="LRF"
+	respawn="true">
+  </node>
+
+  <node
+    pkg="ekf_localize"
+    type="ekf_localize_node"
+    name="FILTER"
+	respawn="true"
+    args="-f $(find ekf_localize)/config1.xml -m $(find ekf_localize)/map2.xml"
+	output="screen">
+  </node>
+
+  <node
+    pkg="planner"
+    type="planner_circle_run"
+    name="CIRCLE"
+	output = "screen">
+  </node>
+
+<!--
+  <node
+    pkg="kalman_localize"
+    type="kalman_localize_node"
+    name="FILTER"
+	respawn="true"
+    args="-f $(find kalman_localize)/config1.xml -m $(find kalman_localize)/map2.xml"
+	output="screen"> 
+  </node>
+-->
+ <!-- 
+  <node
+    pkg="randomwalk"
+    type="randomwalk_node"
+    name="Walk"
+	respawn="true">
+  </node> -->
+
+</launch>

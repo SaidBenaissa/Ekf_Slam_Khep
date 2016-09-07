@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ekf_localize")
+set(ekf_localize_MAINTAINER "benaissa <ph17dn@gmail.com>")
+set(ekf_localize_DEPRECATED "")
+set(ekf_localize_VERSION "0.0.0")
+set(ekf_localize_BUILD_DEPENDS "roscpp" "nav_msgs" "geometry_msgs")
+set(ekf_localize_RUN_DEPENDS "roscpp" "nav_msgs" "geometry_msgs")
+set(ekf_localize_BUILDTOOL_DEPENDS "catkin")
