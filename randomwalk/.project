@@ -47,7 +47,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>/home/towardthesea/catkin_ws/src/randomwalk</value>
+					<value>/home/benaissa/catkin_ws/src/randomwalk</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
@@ -141,7 +141,7 @@
 		<link>
 			<name>[Targets]/[exe] randomwalk_node/Source Files/randomwalk_node.cpp</name>
 			<type>1</type>
-			<location>/home/towardthesea/catkin_ws/src/randomwalk/src/randomwalk_node.cpp</location>
+			<location>/home/benaissa/catkin_ws/src/randomwalk/src/randomwalk_node.cpp</location>
 		</link>
 		<link>
 			<name>[Targets]/[exe] randomwalk_node/Header Files</name>
