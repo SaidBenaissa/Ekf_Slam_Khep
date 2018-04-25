@@ -323,7 +323,7 @@
 </target>
 <target name="Clean" path="[Targets]/[exe] randomwalk_node" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
 <buildCommand>/usr/bin/cmake</buildCommand>
-<buildArguments>-E chdir "/home/towardthesea/catkin_ws/src/randomwalk" "/usr/bin/cmake" -P "CMakeFiles/randomwalk_node.dir/cmake_clean.cmake"</buildArguments>
+<buildArguments>-E chdir "/home/benaissa/catkin_ws/src/randomwalk" "/usr/bin/cmake" -P "CMakeFiles/randomwalk_node.dir/cmake_clean.cmake"</buildArguments>
 <buildTarget></buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
