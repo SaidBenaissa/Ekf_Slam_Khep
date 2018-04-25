@@ -2,8 +2,7 @@
 
  * planner_node.cpp
  *
- *  Created on: Jun 19, 2014
- *      Author: pavan
+ * 
 */
 
 
